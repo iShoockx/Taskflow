@@ -4,6 +4,9 @@ import dotenv from "dotenv";
 import connectDB from "./config/db.js";
 import authRoutes from "./routes/authRoutes.js";
 import tarefaRoutes from "./routes/tarefaRoutes.js";
+import usuarioRoutes from "./routes/usuarioRoutes.js";
+
+
 
 dotenv.config();
 
@@ -16,6 +19,7 @@ app.use(express.json());
 
 app.use("/api/auth", authRoutes);
 app.use("/api/tarefas", tarefaRoutes);
+app.use("/api/usuarios", usuarioRoutes);
 
 const PORT = 3000;
 

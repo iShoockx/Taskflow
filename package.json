@@ -1,0 +1,24 @@
+{
+  "name": "taskflow",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "concurrently \"npm run dev --prefix Backend\" \"npm run dev --prefix Frontend\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iShoockx/Taskflow.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iShoockx/Taskflow/issues"
+  },
+  "homepage": "https://github.com/iShoockx/Taskflow#readme",
+  "dependencies": {
+    "concurrently": "^9.2.1"
+  }
+}

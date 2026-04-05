@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import api from "../api/api";
+import logoTaskflow from "../assets/images/taskflow.png";
+import "./login.css";
 
 function Cadastro() {
   const [nome, setNome] = useState("");
@@ -26,43 +28,79 @@ function Cadastro() {
   };
 
   return (
-    <div className="container">
-      <div className="card">
-        <h1 className="titulo-pagina">Cadastro</h1>
+    <div className="login-page">
+      <div className="login-overlay"></div>
 
-        <form className="formulario" onSubmit={cadastrarUsuario}>
-          <input
-            className="input"
-            type="text"
-            placeholder="Digite seu nome"
-            value={nome}
-            onChange={(e) => setNome(e.target.value)}
+      <div className="login-wrapper">
+        <div className="login-brand">
+          <img
+            src={logoTaskflow}
+            alt="Logo Taskflow"
+            className="login-logo"
           />
+          <p className="login-subtitle">
+            Crie sua conta e comece a organizar suas tarefas com mais fluidez.
+          </p>
+        </div>
 
-          <input
-            className="input"
-            type="email"
-            placeholder="Digite seu email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
+        <div className="login-card">
+          <div className="login-card-top">
+            <span className="login-badge">Primeiro acesso</span>
+            <h1>Criar conta</h1>
+            <p>Preencha seus dados para entrar no Taskflow.</p>
+          </div>
 
-          <input
-            className="input"
-            type="password"
-            placeholder="Digite sua senha"
-            value={senha}
-            onChange={(e) => setSenha(e.target.value)}
-          />
+          <form className="login-form" onSubmit={cadastrarUsuario}>
+            <div className="login-input-group">
+              <label htmlFor="nome">Nome</label>
+              <input
+                id="nome"
+                className="login-input"
+                type="text"
+                placeholder="Digite seu nome"
+                value={nome}
+                onChange={(e) => setNome(e.target.value)}
+              />
+            </div>
 
-          <button className="botao" type="submit">
-            Cadastrar
-          </button>
-        </form>
+            <div className="login-input-group">
+              <label htmlFor="email">Email</label>
+              <input
+                id="email"
+                className="login-input"
+                type="email"
+                placeholder="Digite seu email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
 
-        <p style={{ marginTop: "16px" }}>
-          Já tem conta? <Link to="/login">Fazer login</Link>
-        </p>
+            <div className="login-input-group">
+              <label htmlFor="senha">Senha</label>
+              <input
+                id="senha"
+                className="login-input"
+                type="password"
+                placeholder="Digite sua senha"
+                value={senha}
+                onChange={(e) => setSenha(e.target.value)}
+              />
+            </div>
+
+            <button className="login-button" type="submit">
+              Criar conta
+            </button>
+          </form>
+
+          <div className="login-footer">
+            <p>
+              Já tem conta?{" "}
+              <Link to="/login" className="login-link">
+                Entrar agora
+              </Link>
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   );

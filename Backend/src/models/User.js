@@ -6,21 +6,27 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true
     },
-
     email: {
       type: String,
       required: true,
       unique: true
     },
-
     senha: {
       type: String,
-      required: true
+      default: ""
+    },
+    tipo: {
+      type: String,
+      enum: ["usuario", "admin"],
+      default: "usuario"
+    },
+    provedor: {
+      type: String,
+      enum: ["local", "google"],
+      default: "local"
     }
   },
-  {
-    timestamps: true
-  }
+  { timestamps: true }
 );
 
 const User = mongoose.model("User", userSchema);
